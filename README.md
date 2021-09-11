@@ -51,4 +51,4 @@ Code a function that returns the hurricane that caused the greatest damage as we
 Using the hurricanes dictionary, code a function that rates hurricanes on a damage scale. Have it return a dictionary where the keys are damage ratings and the __values__**(see below) are lists containing a dictionary for each hurricane that falls into that mortality rating.
 
 ---
-__values__**(Task 7 & Task 9 ): altered code to return onl7 hurricane name as value in dictionary instead of the entire metadata associated hurricane with relavent hurricane.
+__values__**(Task 7 & Task 9 ): altered code to return only the hurricane name as value in dictionary instead of the entire metadata associated hurricane with relavent hurricane.
