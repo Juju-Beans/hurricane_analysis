@@ -24,7 +24,7 @@ conversion = {"M": 1000000,
               "B": 1000000000}
 updated_damages = []
 
-def update_damages():    
+def update_damages():
 #convert damages list string elements into floats or keep as strings if "Damages not recorded" and insert into new list
     for num in range(len(damages)):
         if damages[num] == "Damages not recorded":
@@ -50,8 +50,8 @@ def hurricane_table():
     hurricanes.update({name:{"Name":names[idx],
                         "Months":months[idx],
                         "Years":years[idx],
-                        "Max Sustained Wind":max_sustained_winds[idx], 
-                        "Areas Affected":areas_affected[idx], 
+                        "Max Sustained Wind":max_sustained_winds[idx],
+                        "Areas Affected":areas_affected[idx],
                         "Damage":updated_damages[idx],
                         "Deaths":deaths[idx]}})
   return hurricanes
@@ -62,7 +62,7 @@ hurricanes = hurricane_table()
 years_dict = {}
 for key, value in hurricanes.items():
     years_dict.update({value['Years']:[value]})
-    
+
 # Organizing by Year
 
 print(f"\n", years_dict, f"\n")
@@ -114,9 +114,9 @@ scale = {0: 0,
          4: 10000}
 
 def mortality_scale(dictionary):
-    
+
     scaled_hurricanes = {0:[], 1:[], 2:[], 3:[], 4:[], 5:[]}
-    for k,v in dictionary.items():    
+    for k,v in dictionary.items():
         if v["Deaths"] == scale[0]:
             scaled_hurricanes[0].append(v['Name'])
         elif v['Deaths'] <=scale[1] and v['Deaths'] > 0:
@@ -129,7 +129,7 @@ def mortality_scale(dictionary):
              scaled_hurricanes[4].append(v['Name'])
         else:
             scaled_hurricanes[5].append(v['Name'])
-    return scaled_hurricanes 
+    return scaled_hurricanes
 
 # categorize hurricanes in new dictionary with mortality severity as key
 
@@ -141,7 +141,7 @@ print(f"\nScale 5 hurricanes: ", scaled_hurricanes[5])
 # write your greatest damage function here:
 
 def hurricane_maximum(dictionary):
-    dam_lst = [thing for thing in updated_damages if not thing=='Damages not recorded'] 
+    dam_lst = [thing for thing in updated_damages if not thing=='Damages not recorded']
     maxum = max(dam_lst)
     for key,value in dictionary.items():
         if value['Damage'] == maxum:
@@ -164,10 +164,10 @@ dam_scale = {0: 0,
                 4: 50000000000}
 
 def damage_scale(dictionary):
-    
+
     scaled_damages = {0:[], 1:[], 2:[], 3:[], 4:[]}
-    
-    for k,v in dictionary.items():    
+
+    for k,v in dictionary.items():
         if v['Damage'] == 'Damages not recorded':
             scaled_damages[0].append(v['Name'])
         elif v['Damage'] <=dam_scale[1] and v['Damage'] > dam_scale[0]:
@@ -185,4 +185,3 @@ scaled_damages = damage_scale(hurricanes)
 # categorize hurricanes in new dictionary with damage severity as key
 
 print(f"\n", scaled_damages)
-
